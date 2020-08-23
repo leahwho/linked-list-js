@@ -2,7 +2,7 @@
 FROM node:latest
 
 # Install bash (must be installed for alpine builds)
-RUN apk update && apk add bash
+# RUN apk update && apk add bash
 
 # Create directory for app
 RUN mkdir /app
