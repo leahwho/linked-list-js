@@ -135,11 +135,11 @@ describe("LinkedList", () => {
         });
 
         it("can delete valid values from a list", () => {
-            list.add_first(9);
-            list.add_first(10);
-            list.add_first(4);
-            list.add_first(3);
-            list.add_first(2);
+            list.addFirst(9);
+            list.addFirst(10);
+            list.addFirst(4);
+            list.addFirst(3);
+            list.addFirst(2);
 
             // delete first node (requires updating head)
             list.delete(2)
@@ -167,12 +167,14 @@ describe("LinkedList", () => {
     });
 
     describe("reverse", () => {
-        it("can retrieve an item at index n from the end of the list", () => {
+        it("can reverse the linked list", () => {
             // Arrange
-            list.addFirst(4)
-            list.addFirst(3)
-            list.addFirst(2)
-            list.addFirst(1)
+            list.addFirst(4);
+            list.addFirst(3);
+            list.addFirst(2);
+            list.addFirst(1);
+
+            list.reverse();
 
             // Assert
             expect(list.getAtIndex(0)).toEqual(4);
@@ -182,9 +184,9 @@ describe("LinkedList", () => {
         });
     })
 
-    describe("optional addLast and getLast", () => {
-        it("will add to the front of the list if the list is empty", () => {
-            list.addLast(1);
+    describe.skip("Optional: addLast and getLast", () => {
+        it("will put new items to the rear of the list", () => {
+            list.addLast(2);
             expect(list.length()).toEqual(1);
             expect(list.getLast()).toEqual(2);
 
@@ -199,14 +201,138 @@ describe("LinkedList", () => {
             expect(list.getLast()).toEqual(4);
         })
 
-        it("will put new items to the rear of the list", () => {
+        it("will add to the front of the list if the list is empty", () => {
             // Act
             list.addLast(2);
 
             // Assert
-            expect(list.getAtIndex(0)).toEqual(1);
+            expect(list.getAtIndex(0)).toEqual(2);
         })
     });
 
+    describe.skip("Optional: findNthFromEend", () => {
+        it("will return null if the index is outside the bounds of the list", () => {
+            // Assert
+            expect(list.findNthFromEnd(3)).toBeNull();
+        });
+
+        it("can retrieve an item at index n from the end in the list", () => {
+            list.addFirst(1);
+            list.addFirst(2);
+            list.addFirst(3);
+            list.addFirst(4);
+
+            // Assert
+            expect(list.findNthFromEnd(1)).toEqual(1);
+            expect(list.findNthFromEnd(2)).toEqual(2);
+            expect(list.findNthFromEnd(3)).toEqual(3);
+            expect(list.findNthFromEnd(4)).toEqual(4);
+        });
+    });
+
+    describe.skip("Optional: insertAscending", () => {
+        it("inserts an element in the middle of the list", () => {
+            // Arrange
+            list.addFirst(5);
+            list.addFirst(4);
+            list.addFirst(2);
+            list.addFirst(1);
+
+            // Act 
+            list.insertAscending(3);
+
+            // Assert
+            expect(list.getAtIndex(2)).toEqual(3);
+        });
+
+        it("inserts an element at the beginning of the list", () => {
+            // Arrange
+            list.addFirst(5);
+            list.addFirst(4);
+            list.addFirst(3);
+            list.addFirst(2);
+
+            // Act 
+            list.insertAscending(1);
+
+            // Assert
+            expect(list.getAtIndex(0)).toEqual(1);
+        });
+
+        it("inserts an element at the end of the list", () => {
+            // Arrange
+            list.addFirst(4);
+            list.addFirst(3);
+            list.addFirst(2);
+            list.addFirst(1);
+
+            // Act 
+            list.insertAscending(5);
+
+            // Assert
+            expect(list.getAtIndex(4)).toEqual(5);
+        });
+
+        it("inserts an element in an empty list", () => {
+            // Act 
+            list.insertAscending(5);
+
+            // Assert
+            expect(list.getAtIndex(0)).toEqual(5);
+            expect(list.length()).toEqual(1);
+        });
+    });
+
+    describe.skip("Optional: getMiddleValue", () => {
+        it("finds the middle value of a list with odd length", () => {
+            list.addFirst(3);
+            list.addFirst(2);
+            list.addFirst(1);
+
+            // the middle value is the value at index list.length/2
+            // here, that rounds down to index 1
+            expect(list.findMiddleValue()).toEqual(2);
+        });
+        it("finds the middle value of a list with even length", () => {
+            list.addFirst(4);
+            list.addFirst(3);
+            list.addFirst(2);
+            list.addFirst(1);
+
+            // the middle value is the value at index list.length/2
+            // here, that equals index 2
+            expect(list.findMiddleValue()).toEqual(3);
+        });
+    });
+
+    describe.skip("Optional: hasCycle", () => {
+        it("will return true when a cycle is present", () => {
+            list.addFirst(1);
+            list.addFirst(2);
+            list.addFirst(3);
+
+            list.createCycle();
+
+            expect(list.hasCycle()).toEqual(true);
+        });
+
+        it("will return false when no cycle is present", () => {
+            list.addFirst(1);
+            list.addFirst(2);
+            list.addFirst(3);
+
+            expect(list.hasCycle()).toEqual(false);
+        })
+
+        it("returns true when the cycle contains only one node", () => {
+            list.addFirst(1);
+            list.createCycle();
+            expect(list.hasCycle()).toEqual(true);
+        })
+
+        it("will return false if the list is empty", () => {
+            expect(list.hasCycle()).toEqual(false);
+        })
+    });
 
 })
