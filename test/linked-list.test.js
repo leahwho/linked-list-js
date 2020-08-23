@@ -184,7 +184,7 @@ describe("LinkedList", () => {
         });
     })
 
-    describe.skip("Optional: addLast and getLast", () => {
+    describe("Optional: addLast and getLast", () => {
         it("will put new items to the rear of the list", () => {
             list.addLast(2);
             expect(list.length()).toEqual(1);
@@ -210,7 +210,7 @@ describe("LinkedList", () => {
         })
     });
 
-    describe.skip("Optional: findNthFromEend", () => {
+    describe("Optional: findNthFromEend", () => {
         it("will return null if the index is outside the bounds of the list", () => {
             // Assert
             expect(list.findNthFromEnd(3)).toBeNull();
@@ -230,7 +230,7 @@ describe("LinkedList", () => {
         });
     });
 
-    describe.skip("Optional: insertAscending", () => {
+    describe("Optional: insertAscending", () => {
         it("inserts an element in the middle of the list", () => {
             // Arrange
             list.addFirst(5);
@@ -283,7 +283,7 @@ describe("LinkedList", () => {
         });
     });
 
-    describe.skip("Optional: getMiddleValue", () => {
+    describe("Optional: getMiddleValue", () => {
         it("finds the middle value of a list with odd length", () => {
             list.addFirst(3);
             list.addFirst(2);
@@ -305,7 +305,7 @@ describe("LinkedList", () => {
         });
     });
 
-    describe.skip("Optional: hasCycle", () => {
+    describe("Optional: hasCycle", () => {
         it("will return true when a cycle is present", () => {
             list.addFirst(1);
             list.addFirst(2);
