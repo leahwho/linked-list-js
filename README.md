@@ -1,4 +1,4 @@
-# Hash Table Practice (JavaScript)
+# Linked List Practice (JavaScript)
 See the [Ruby version](https://github.com/AdaGold/linked-list) for details.
 
 ## Installation
