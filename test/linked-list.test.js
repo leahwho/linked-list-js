@@ -174,8 +174,8 @@ describe("LinkedList", () => {
             list.addFirst(2);
             list.addFirst(1);
 
+            // Act 
             list.reverse();
-
             // Assert
             expect(list.getAtIndex(0)).toEqual(4);
             expect(list.getAtIndex(1)).toEqual(3);
