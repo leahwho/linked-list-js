@@ -1,0 +1,21 @@
+{
+  "name": "linked-list-js",
+  "engines": {
+    "node": ">=12.0"
+  },
+  "version": "1.0.0",
+  "description": "Linked list practice in Javascript, based on Ruby version at https://github.com/Ada-C13/linked-list/",
+  "main": "lib/linked-list.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}
